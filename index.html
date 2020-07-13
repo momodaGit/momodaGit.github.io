@@ -1,492 +1,169 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>eggplant</title>
-<!--     <link type="text/css" rel="stylesheet" href="css/style.css"> -->
-	<style>
-html,body {
-    color: #333;
-    margin: 0;
-    height: 100%;
-    font-family: "Myriad Set Pro","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-    color: #000;
-}
-
-img {
-    border: 0;
-}
-
-body {
-    background: #fff;
-    color: #666;
-}
-
-html, body, div, dl, dt, dd, ol, ul, li, h1, h2, h3, h4, h5, h6, p, blockquote, pre, button, fieldset, form, input, legend, textarea, th, td {
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-    color: #08acee;
-}
-
-button {
-    outline: 0;
-}
-
-img {
-    border: 0;
-}
-
-button,input,optgroup,select,textarea {
-    margin: 0;
-    font: inherit;
-    color: inherit;
-    outline: none;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    color: #666;
-}
-
-a:hover {
-    color: #eee;
-}
-
-.clearfix::after {
-    clear: both;
-    content: ".";
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-
-.clearfix {
-}
-
-/* 必要布局样式css */
-.swiper-container {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 1
-}
-
-.swiper-container-no-flexbox .swiper-slide {
-    float: left
-}
-
-.swiper-container-vertical>.swiper-wrapper {
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column
-}
-
-.swiper-wrapper {
-    position: relative;
-    width: 10%;
-    height: 100%;
-    z-index: 1;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    -ms-transition-property: -ms-transform;
-    transition-property: transform;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-}
-
-.swiper-wrapper {
-    -webkit-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -o-transform: translate(0,0);
-    -ms-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0)
-}
-
-.swiper-slide {
-    -webkit-flex-shrink: 0;
-    -ms-flex: 0 0 auto;
-    flex-shrink: 0;
-    width: 50%;
-    height: 100%;
-    position: relative;
-    padding: 0;
-    -webkit-box-shadow: rgba(0,0,0,.2) 0px 0px 30px;
-    -moz-box-shadow: rgba(0,0,0,.2) 0px 0px 30px;
-    box-shadow: rgba(0,0,0,.2) 0px 0px 30px;
-}
-
-.swiper-button-next,.swiper-button-prev {
-    position: absolute;
-    top: 50%;
-    width: 27px;
-    height: 50px;
-    margin-top: -25px;
-    -moz-background-size: 27px 44px;
-    -webkit-background-size: 27px 44px;
-    background-size: 27px 44px;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor:pointer;
-}
-
-.swiper-button-next,.swiper-container-rtl .swiper-button-prev {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
-    right: 10px;
-    left: auto
-}
-
-.swiper-pagination {
-    position: absolute;
-    text-align: center;
-    -webkit-transition: .3s;
-    -moz-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
-    -webkit-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-    z-index: 10
-}
-
-.swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    display: inline-block;
-    border-radius: 100%;
-    background: #000;
-    opacity: .2;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.swiper-slide:hover {
-    -webkit-box-shadow: rgba(0,0,0,.5) 0px 0px 50px;
-    -moz-box-shadow: rgba(0,0,0,.5) 0px 0px 50px;
-    box-shadow: rgba(0,0,0,.5) 0px 0px 50px;
-}
-
-.banner-box {
-    width: 100%;
-    float: left;
-    position: relative;
-    overflow: hidden;
-}
-
-.swiper-container {
-    width: 100%;
-    margin: 12px 0;
-}
-
-.swiper-slide {
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transform: scale(.8);
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-    -webkit-transition: transform 1.0s;
-    -moz-transition: transform 1.0s;
-    -ms-transition: transform 1.0s;
-    -o-transition: transform 1.0s;
-    -webkit-transform: scale(0.7);
-    -moz-box-shadow: rgba(0,0,0,.2) 0px 0px 30px;
-}
-
-
-.swiper-slide-active,.swiper-slide-duplicate-active {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-
-
-
-.swiper-slide img {
-    width: 100%;
-    display: block;
-}
-
-.swiper-pagination {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.swiper-pagination-bullet-active {
-    opacity: 1;
-    background: rgba(0,0,0,.8);
-}
-
-@media screen and (max-width: 668px) {
-    .swiper-pagination {
-        position: relative;
-        margin-bottom: 20px;
-    }
-
-    .swiper-pagination-bullet-active {
-        opacity: 1;
-        background: rgba(0,0,0,.8);
-    }
-}
-
-.banner-arrow div:hover {
-    background-color: #4a4a4a;
-}
-
-.swiper-button-prev {
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E") #7c7c7c center 50%/50% 50% no-repeat;
-    left: 10px;
-}
-
-.swiper-button-next {
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E") #7c7c7c center 50%/50% 50% no-repeat;
-}
-
-.banner-top {
-    padding-top: 3.730928444707274%;
-}
-
-.banner-title {
-    padding: 5px 0;
-}
-
-.banner-title h1 {
-    text-align: center;
-    letter-spacing: 5px;
-    font-size: 45px;
-    font-family: "Microsoft YaHei", 微软雅黑, MicrosoftJhengHei, 华文细黑, STHeiti, MingLiu;
-    font-weight: normal;
-    color: rgb(68, 68, 68);
-    padding-bottom: 14px;
-}
-
-.banner-text {
-    text-align: center;
-}
-
-.banner-text p {
-    font: 15px/1.5 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', "Hiragino Sans GB",Arial,"Microsoft YaHei", "å¾®è½¯é›…é»‘", "STHeiti", "WenQuanYi Micro Hei",'PingFang SC', SimSun, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
-    color: rgb(68, 68, 68);
-}
-
-.banner-top-one {
-    padding-top: 3.311649911295092%;
-}
-
-.banner-button {
-    width: 100%;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.banner-button a {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    height: auto;
-    width: auto;
-    line-height: 100%;
-    padding: 15px 32px;
-    position: relative;
-}
-
-.banner-button-btn {
-    color: #fff;
-    font-weight: 400;
-    margin: 0;
-    line-height: 1.8em;
-    font-size: 16px;
-    font-family: 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', "Hiragino Sans GB",Arial,"Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei",'PingFang SC', SimSun, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background-color: #69ca72!important;
-    border-radius: 100px;
-}
-
-.banner-button-btn{
-    background: #cedad0;
-    display: inline-block;
-    -webkit-transition: border-color .4s,color .4s;
-    -moz-transition: border-color .4s,color .4s;
-    transition: border-color .4s,color .4s;
-    border: 0;
-    vertical-align: middle;
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    -webkit-backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.banner-button-btn, .banner-button-btn::before{
-     -webkit-transition-timing-function: cubic-bezier(0.2,1,.3,1);
-    -moz-transition-timing-function: cubic-bezier(0.2,1,.3,1);
-     transition-timing-function: cubic-bezier(0.2,1,.3,1);
-}
-
-.banner-button-btn::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    background: #1a7c29;
-    z-index: -1;
-    opacity: 0;
-    -webkit-transform: scale3d(0.7,1,1);
-    -moz-transform: scale3d(0.7,1,1);
-    -ms-transform: scale3d(0.7,1,1);
-    -o-transform: scale3d(0.7,1,1);
-    transform: scale3d(0.7,1,1);
-    -webkit-transition: -webkit-transform .4s,opacity .4s;
-    -moz-transition: -moz-transform .4s,opacity .4s;
-    transition: transform .4s,opacity .4s;
-    -webkit-transition-timing-function: cubic-bezier(0.2,1,.3,1);
-    -moz-transition-timing-function: cubic-bezier(0.2,1,.3,1);
-    transition-timing-function: cubic-bezier(0.2,1,.3,1);
-}
-
-.banner-button-btn:hover::before{
-    opacity: 1;
-    -webkit-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-}
-
-	</style>
-    <script type="text/javascript" src="js/swiper.min.js"></script>
-</head>
-
-<body>
-
-    <!--
-
-             * 17素材vip建站专区模块代码
-             * 详尽信息请看官网：http://www.17sucai.com/pins/vip
-             *
-             * Copyright , 温州易站网络科技有限公司版权所有
-             *
-             * 请尊重原创，未经允许请勿转载。
-             * 在保留版权的前提下可应用于个人或商业用途
-
-		-->
-
-    <div class="banner-box">
-        <div class="banner-top"></div>
-        <div class="banner-title">
-            <h1>张嘉伟</h1>
-        </div>
-        <div class="banner-text">
-            <p>别具一格的不仅是风景</p>
-        </div>
-        <div class="banner-top-one"></div>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide swiper-slide-center none-effect">
-                    <a href="javascript:;">
-                        <img src="images/banner1.jpg" about="" title="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="javascript:;">
-                        <img src="images/banner2.jpg" about="" title="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="javascript:;">
-                        <img src="images/banner3.jpg" about="" title="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="javascript:;">
-                        <img src="images/banner4.jpg" about="" title="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="javascript:;">
-                        <img src="images/banner5.jpg" about="" title="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="javascript:;">
-                        <img src="images/banner6.jpg" about="" title="">
-                    </a>
-                </div>
-            </div>
-            <div class="banner-arrow">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-        <div class="swiper-pagination"></div>
-
-    </div>
-    <div class="banner-button">
-        <a href="http://www.baidu.com" class="do-btn banner-button-btn">&nbsp;下一个 &nbsp;</a>
-    </div>
-
-    <script type="text/javascript">
-
-        window.onload = function () {
-            var swiper = new Swiper('.swiper-container', {
-                autoplay: false, //是否自动滚动
-                speed: 500,      //滚动速速
-                autoplayDisableOnInteraction: true,
-                loop: true,
-                centeredSlides: true,
-                slidesPerView: 3, //当前选中
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                prevButton: '.swiper-button-prev', // 左右切换
-                nextButton: '.swiper-button-next', // 左右切换
-                onInit: function (swiper) {
-                    swiper.slides[3].className = "swiper-slide swiper-slide-active"; //当前选中 状态
-                },
-                breakpoints: {
-                    100: {
-                        slidesPerView: 0,
-                    }
-                }
-            });
-        }
-
-    </script>
-
-
-</body>
-
+<!doctype html>
+<!--禁止拖拽-->
+<html ondragstart="return false">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="Citrons">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>你笑起来真好看~</title>
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  body{
+  background:#66677c;
+  overflow:hidden;
+  }
+  #perspective{
+  perspective:800px;/*场景景深*/
+
+  }
+  #wrap{
+  position:relative;
+  width:149px;
+  height:200px;
+  margin:150px auto 0;
+  transform-style:preserve-3d;/*当前元素3D效果*/
+  transform:rotateX(-20deg) rotateY(0deg);
+
+
+  }
+  #wrap img{
+  position:absolute;
+  /*倒影设置*/
+  -webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,0.5) 100%);
+  cursor:pointer;
+    -moz-user-select: -moz-none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+			  border-radius:5px;
+  box-shadow:0 0 20px #FFF;
+  /*背景渐变效果！important*/
+  -webkit-box-reflect:below 10px
+  -webkit-linear-gradient(top,rgba(0,0,0,0) 80%,rgba(0,0,0,1) 100%);
+
+  }
+  #wrap p{
+		width: 1200px;
+		height: 1200px;
+		background:-webkit-radial-gradient(center center,600px 600px,rgba(244,23,234,0.2),rgba(0,0,0,0));
+		position: absolute;
+		top:100%;left:50%;
+		margin-top: -600px;
+		margin-left: -600px;
+		border-radius:600px;
+		transform:rotateX(90deg);
+	}
+  </style>
+ </head>
+ <body>
+ <div id="perspective">
+ <div id="wrap">
+	<img src="img/1.jpg" alt="">
+	<img src="img/2.jpg" alt="">
+	<img src="img/3.jpg" alt="">
+    <img src="img/4.jpg" alt="">
+	<img src="img/5.jpg" alt="">
+	<img src="img/6.jpg" alt="">
+	<img src="img/7.jpg" alt="">
+	<img src="img/8.jpg" alt="">
+	<img src="img/9.jpg" alt="">
+    <img src="img/10.jpg" alt="">
+	<img src="img/11.jpg" alt="">
+	<p></P>
+ </div>
+ <div>
+ <script type="text/javascript">
+			window.onload = function(){
+				var oWrap = document.getElementById('wrap');
+				var oImg = oWrap.getElementsByTagName('img');
+				var oImgLength = oImg.length;
+				var Deg = 360 / oImgLength;
+				var nowX , nowY , lastX , lastY , minusX = 0, minusY = 0;
+				var roY = 0 , roX = -10;
+				var timer;
+
+				for ( var i=0;i<oImgLength;i++ )
+				{
+					oImg[i].style.transform = 'rotateY('+ i*Deg +'deg) translateZ(350px)';
+					oImg[i].style.transition = 'transform 1s '+ (oImgLength-1-i)*0.1 +'s';
+
+				}
+
+				mTop();
+
+				window.onresize = mTop;
+
+				function mTop(){
+					var wH = document.documentElement.clientHeight;
+					oWrap.style.marginTop = wH / 2 - 180 + 'px';
+				}
+				
+				// 拖拽：三个事件-按下 移动 抬起
+				//按下
+				document.onmousedown = function(ev){
+					ev = ev || window.event;
+
+					//鼠标按下的时候，给前一点坐标赋值，为了避免第一次相减的时候出错
+					lastX = ev.clientX;
+					lastY = ev.clientY;
+					
+					//移动
+					this.onmousemove = function(ev){
+						ev = ev || window.event;
+
+						clearInterval( timer );
+
+						nowX = ev.clientX; // clientX 鼠标距离页面左边的距离
+						nowY = ev.clientY; // clientY ………………………………顶部………………
+
+						//当前坐标和前一点坐标差值
+						minusX = nowX - lastX; 
+						minusY = nowY - lastY;
+						
+						//更新wrap的旋转角度，拖拽越快-> minus变化大 -> roY变化大 -> 旋转快
+						roY += minusX*0.2; // roY = roY + minusX*0.2;
+						roX -= minusY*0.1;
+	 
+						oWrap.style.transform = 'rotateX('+ roX +'deg) rotateY('+ roY +'deg)';
+						
+						/*
+						//生成div，让div跟着鼠标动
+						var oDiv = document.createElement('div');
+						oDiv.style.cssText = 'width:5px;height:5px;background:red;position:fixed;left:'+nowX+'px;top:'+nowY+'px';
+						this.body.appendChild(oDiv);
+						*/
+						
+						//前一点的坐标
+						lastX = nowX;
+						lastY = nowY;
+
+					}
+					//抬起
+					this.onmouseup = function(){
+						this.onmousemove = null;
+						timer = setInterval(function(){
+							minusX *= 0.95;
+							minusY *= 0.95;
+							roY += minusX*0.2; // roY = roY + minusX*0.2;
+							roX -= minusY*0.1;
+							oWrap.style.transform = 'rotateX('+ roX +'deg) rotateY('+ roY +'deg)';
+
+							if ( Math.abs(minusX)<0.1 && Math.abs( minusY )<0.1 )
+							{
+								clearInterval( timer );
+							}
+							console.log( minusX );
+						},13);
+					}
+					return false;
+				}
+			}
+
+		</script>
+ </body>
 </html>
